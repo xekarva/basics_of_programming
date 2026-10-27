@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+struct Student {
+    string name;
+    int age;
+    int group;
+    double averageGrade;
+};
+
+int main() {
+    setlocale(LC_ALL, "rus");
+
+    vector<Student> students = {
+        {"Сухорукова Дарья", 19, 4511, 2.4},
+        {"Термишева Анжелина", 21, 4511, 99.99},
+        {"Карманова Яна", 19, 4511, 3.0}
+    };
+
+    int maxIndex = 0;
+
+    for (size_t i = 1; i < students.size(); i++) {
+        if (students[i].averageGrade > students[maxIndex].averageGrade) {
+            maxIndex = i;
+        }
+    }
+
+    cout << "=== Студент с максимальным средним баллом ===" << endl;
+    cout << "Имя: " << students[maxIndex].name << endl;
+    cout << "Группа: " << students[maxIndex].group << endl;
+    cout << "Средний балл: " << students[maxIndex].averageGrade << endl;
+
+    return 0;
+}
